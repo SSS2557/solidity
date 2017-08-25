@@ -887,6 +887,7 @@ void ContractCompiler::appendMissingFunctions()
 		solAssert(m_context.nextFunctionToCompile() != function, "Compiled the wrong function?");
 	}
 	m_context.appendMissingLowLevelFunctions();
+	m_context.appendInlineAssembly("{" + m_context.abiFunctions().requestedFunctions() + "}", {}, true);
 }
 
 void ContractCompiler::appendModifierOrFunctionCode()
